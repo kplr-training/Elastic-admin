@@ -226,3 +226,14 @@ Ensuite, vous tapez la commande suivante pour définir le jeton de connexion
 
 ```
 Puis, collez le jeton que vous venez de copier dans la console.
+
+Vous allez par la suite copier la certificat `http_ca.crt` qui existe dans le répertoire des certificats de Elasticsearch vers le répertoire des certificats de Kibana à l'aide de la commande suivante:
+```
+cp /etc/elasticsearch/certs/http_ca.crt  /etc/kibana/certs/
+```
+
+Vous revenez vers le fichier de configuration `kibana.yml` et vous apportez les modifications suivantes (la partie System: Elasticsearch (Optional)) :
+```
+elasticsearch.ssl.verificationMode: certificate
+elasticsearch.ssl.certificateAuthorities: [ "/etc/kibana/certs/http_ca.crt" ]
+```

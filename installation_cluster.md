@@ -237,3 +237,44 @@ Vous revenez vers le fichier de configuration `kibana.yml` et vous apportez les 
 elasticsearch.ssl.verificationMode: certificate
 elasticsearch.ssl.certificateAuthorities: [ "/etc/kibana/certs/http_ca.crt" ]
 ```
+**Génération des certificats SSL avec Let's Encrypt**
+
+Dans cette partie, vous allez générer des certificats SSL dont on aura besoin pour sécuriser la communication entre le serveur de Kibana et votre navigateur web.
+
+Pour ce faire, vous commencez par l'installation de `Snapd` qui est un gestionnaire de paquets utilisé pour gérer les paquets de logiciels Snap sur les systèmes d'exploitation Linux.
+```
+apt-get -y install snapd
+```
+A l'aide de Snap, vous allez installer Certbot qui va vous aidez à créer votre certificat:
+```
+snap install --classic certbot
+```
+Maintenant, pour générer votre certificat, tapez la commande suivante: 
+
+```
+certbot certonly --standalone
+```
+Ensuite: 
+ - Vous pouvez tapez votre adresse email 
+ - Vous tapez `Y` pour accepter les conditions d'utilisation 
+ - Vous saississez le nom de domaine suivant : `dash01.dev.kplr.fr` 
+
+A ce moment, votre certificat est bien téléchargé dans votre machine!
+
+Dans la console, tapez la commande suivante pour créer le répertoire suivant dont vous allez ajouter votre certificat:
+```
+mkdir /etc/kibana/certs/dash01.dev.kplr.fr
+```
+Ensuite, vous copiez les fichiers du certificat vers le répertoire que vous venez de créer:
+```
+cp -a /etc/letsencrypt/archive/dash01.dev.kplr.fr/. /etc/kibana/certs/dash01.dev.kplr.fr
+```
+Finalement, vous revenez vers le fichier de configuration principal de Kibana et vous apportez les modifications suivantes:
+```
+server.ssl.enabled: true
+server.ssl.certificate: /etc/kibana/certs/dash01.dev.kplr.fr/fullchain1.pem
+server.ssl.key: /etc/kibana/certs/dash01.dev.kplr.fr/privkey1.pem
+
+```
+
+![image](https://user-images.githubusercontent.com/123748177/228023179-d22f1b5e-f832-42e4-8f18-f75c601644dd.png)

@@ -162,3 +162,4 @@ node.name: esnode-2
 network.host: esnode-2.elastic.kplr.fr
 http.port: 9200
 ```
+**NB: Vous refaites la même chose pour le troisième noeud pour le configurer!! **

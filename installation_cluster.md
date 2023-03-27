@@ -57,12 +57,14 @@ IP.ADRESS.HOST.2 esnode-2.elastic.kplr.fr esnode-2
 IP.ADRESS.HOST.3 esnode-3.elastic.kplr.fr esnode-3
 ```
 **2- Configuration du noeud master du cluster :**
+
 Dans cette partie, vous choisissez une machine parmi les trois que vous avez pour qu'elle soit le noeud maitre 'Master' de votre cluster et vous commencez de la configurer.
 
 Tout d'abord, vous allez vous positionner dans le répertoire qui contient les fichiers de configuration à l'aide de la commande suivante: 
 ```
 sudo apt-get update && sudo apt-get install elasticsearch
 ```
+
 
 
 

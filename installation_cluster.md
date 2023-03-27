@@ -92,6 +92,19 @@ http.port: 9200
 ![image](https://user-images.githubusercontent.com/123748177/227981642-a99f7d27-5004-46d1-9c60-0122539a74d5.png)
 
 
+**On va lancer maintenant le cluster avec seulement ce noeud Master**
 
+- Vous pouvez utiliser les commandes suivantes : 
+```
+systemctl daemon-reload
 
+systemctl enable elasticsearch
 
+systemctl start elasticsearch
+```
+
+- Puis, on vérifie l'état du cluster pour vérifier que tout marche correctement.
+
+```
+systemctl status elasticsearch
+```

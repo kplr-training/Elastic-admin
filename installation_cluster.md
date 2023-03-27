@@ -19,11 +19,13 @@ Lorsque vous êtes bien connectés à vos machines, vous basculez en mode admini
  cd
  ```
 Vu que toutes ces machines sont des nouvelles instances d'Ubuntu, vous devez mettre à jour la distribution ainsi qu'installer certains paquets dont vous aurez peut-être besoin, tels que l'éditeur Vim, la commande curl, GNUPG et gpg. 
+
 Donc, vous allez mettre à jour chacune de ces machines, à l'aide de la commande suivante:
  ```
  apt-get update && apt dist-upgrade -y && apt-get install -y vim curl gnupg gpg;
  ```
 Maintenant, vos machines sont prêtes pour commencer l'installation d'Elasticsearch (L'installation suivante se fait dans les trois machines).
+
 Tous les packages sont signés avec une clé de signature Elasticsearch. Téléchargez et installez la clé de signature publique :
 ```
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
@@ -41,7 +43,9 @@ Et finalement, vous installez Elasticsearch:
 sudo apt-get update && sudo apt-get install elasticsearch
 ```
 **Configuration additionnelle**
+
 Vous devez apporter des modifications au fichier `/etc/hosts` qui contient une table de correspondance entre les adresses IP et les noms d'hôtes. Il est utilisé par le système d'exploitation pour résoudre les noms de domaine en adresses IP. 
+
 Vous devez ajouter les adresses IP de vos machines avec des noms d'hôtes pour avoir une correspondance. Pour ce faire, vous tapez la commande suivante:
 ```
 vi /etc/hosts
@@ -54,6 +58,7 @@ IP.ADRESS.HOST.3 esnode-3.elastic.kplr.fr esnode-3
 ```
 **2- Configuration du noeud master du cluster :**
 Dans cette partie, vous choisissez une machine parmi les trois que vous avez pour qu'elle soit le noeud maitre 'Master' de votre cluster et vous commencez de la configurer.
+
 Tout d'abord, vous allez vous positionner dans le répertoire qui contient les fichiers de configuration à l'aide de la commande suivante: 
 ```
 sudo apt-get update && sudo apt-get install elasticsearch

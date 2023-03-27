@@ -162,4 +162,67 @@ node.name: esnode-2
 network.host: esnode-2.elastic.kplr.fr
 http.port: 9200
 ```
-**NB: Vous refaites la même chose pour le troisième noeud pour le configurer!! **
+**NB: Vous refaites la même chose pour le troisième noeud pour le configurer!!**
+
+Pour vérifier que les nouveaux noeuds sont bien ajoutés au cluster, vous tapez les commandes suivantes: 
+- Vous lancez Elasticsearch tout d'abord dans les nouveaux noeuds:
+```
+systemctl daemon-reload
+
+systemctl enable elasticsearch
+
+systemctl start elasticsearch
+```
+- Puis, vous interroguez l'API Elastic ( à partir du noeud 1 ):
+```
+curl -k -u elastic:kplr123 https://esnode-1.elastic.kplr.fr:9200/_cluster/health?pretty
+``` 
+
+## 4- Installation de Kibana:
+
+Pour installer Kibana, vous choisissez l'un des noeuds secondaires dans lequel vous allez procédez l'installation. On choisit par exemple le noeud `es-node-2`.
+
+Vous installez Kibana à l'aide de la commande suivante:
+```
+sudo apt-get update && sudo apt-get install kibana
+```
+Vous accédez par la suite au fichier de configuration pour modifier les parties nécessaires:
+```
+vi /etc/kibana/kibana.yml
+```
+Puis, vous apportez les modifications suivantes ( la partie System: Kibana Server), en précisant le port du serveur et son adresse, ainsi que le lien que vous allez utiliser pour se connecter à Kibana dans votre navigateur: 
+```
+server.port: 5601
+
+server.host: "0.0.0.0"
+
+server.publicBaseUrl: "https://dash01.dev.kplr.fr:5601"
+```
+Ajoutez aussi la liste des noeuds du cluster pour que Kibana puisse se connecte à chacun parmi eux ( la partie System: Elasticsearch):
+```
+elasticsearch.hosts:
+  - https://esnode-1.elastic.kplr.fr:9200
+  - https://esnode-2.elastic.kplr.fr:9200
+  - https://esnode-3.elastic.kplr.fr:9200
+```
+![image](https://user-images.githubusercontent.com/123748177/228008363-ef620894-a6f9-44d7-a3b7-4479775e3ed2.png)
+
+**Maintenant, vous devez créer des coordonnées de Kibana pour qu'elle se connecte au cluster d'une manière sécurisée.** 
+Pour ce faire, vous devez générer le jeton, dans la console du noeud actuel, tapez la commande suivante:
+```
+curl -X POST -k -u elastic:kplr123 https://esnode-2.elastic.kplr.fr:9200/_security/service/elastic/kibana/credential/token/kibana_token
+
+```
+NB: Copiez la valeur du jeton pour l'utiliser par la suite! 
+
+
+Redirigez vous vers le répertoire `/usr/share/kibana/bin`:
+```
+ cd /usr/share/kibana/bin
+```
+Ensuite, vous tapez la commande suivante pour définir le jeton de connexion 
+```
+./kibana-keystore add elasticsearch.serviceAccountToken
+
+```
+Puis, collez le jeton que vous venez de copier dans la console.

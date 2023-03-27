@@ -108,3 +108,4 @@ systemctl start elasticsearch
 ```
 systemctl status elasticsearch
 ```
+![image](https://user-images.githubusercontent.com/123748177/227985805-e2755adf-9942-4f90-8f14-c8b6bfa7ec5b.png)

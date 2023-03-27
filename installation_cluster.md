@@ -4,7 +4,7 @@ Dans le cadre de notre formation, vous allez installer un cluster multi-noeud po
 
 Vous allez également mettre en place des mesures de sécurité en utilisant les protocoles TLS/SSL/HTTPS pour sécuriser l'accès à votre cluster. Cette configuration sécurisée vous permettra d'apprendre à protéger les données et les informations stockées dans votre cluster, ainsi que de comprendre les enjeux liés à la sécurité des données dans les environnements professionnels. 
 
-**1- Installation d'Elasticsearch :**
+##1- Installation d'Elasticsearch :
 
 Vous avez 3 machines Linux quelque part dans le cloud, chacune avec des adresses IP différentes. Ces machines utilisent le système d'exploitation Ubuntu 22.4. 
 
@@ -56,7 +56,7 @@ IP.ADRESS.HOST.1 esnode-1.elastic.kplr.fr esnode-1
 IP.ADRESS.HOST.2 esnode-2.elastic.kplr.fr esnode-2
 IP.ADRESS.HOST.3 esnode-3.elastic.kplr.fr esnode-3
 ```
-**2- Configuration du noeud master du cluster :**
+##2- Configuration du noeud master du cluster :
 
 Dans cette partie, vous choisissez une machine parmi les trois que vous avez pour qu'elle soit le noeud maitre 'Master' de votre cluster et vous commencez de la configurer.
 
@@ -119,7 +119,7 @@ Vous devriez pinguer l'API pour voir quel est le statut du cluster, mais tout d'
 ```
  cd /usr/share/elasticsearch/bin/
 ```
-- Ensuite, utilisez la commande de réinitialisation du mot de passe qui vient avec l'installation d'Elasticsearch (Saissisez le mot de passe : kplr123):
+- Ensuite, utilisez la commande de réinitialisation du mot de passe qui vient avec l'installation d'Elasticsearch ( Saissisez le mot de passe : kplr123 ):
 ```
  elasticsearch-reset-password -u elastic
 ```
@@ -131,3 +131,5 @@ curl -k -u elastic:kplr123 https://esnode-1.elastic.kplr.fr:9200/_cluster/health
 ```
 Vous pouvez voir dans le résultat de la commande que le cluster `kplr-cluster` contient un seul noeud.
 
+
+##3- Ajout et configuration des noeuds 2 et 3:

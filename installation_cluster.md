@@ -133,3 +133,24 @@ Vous pouvez voir dans le résultat de la commande que le cluster `kplr-cluster` 
 
 
 ## 3- Ajout et configuration des noeuds 2 et 3:
+
+Pour ajouter autres noeuds dans le cluster, vous devez générer un `jeton d'inscription` dans le noeud Master et l'utiliser dans le noeud en question pour l'intégrer dans votre cluster. Pour ce faire, on commence par la génération du jeton d'inscription 'Enrollement Token'.
+
+- Dans le `noeud Master` ou `es-node-1`, accédez au répertoire suivant `/usr/share/elasticsearch/bin/` et puis générez le jeton à l'aide de la commande suivante: 
+```
+ elasticsearch-create-enrollment-token -s node
+```
+Vous aurez comme résultat un jeton, copiez-le et gardez-le pour l'utiliser par la suite.
+
+- Dans le noeud que vous voulez ajouter au cluster, accédez au répertoire suivant `/usr/share/elasticsearch/bin/` et utilisez le jeton pour l'intégrer à votre cluster:
+
+```
+  elasticsearch-reconfigure-node --enrollment-token YOUR-TOKEN
+```
+- Pour vérifier que ce dernier est bien intégré au cluster, déplacez vous dans le fichier de configuration: 
+```
+  vi /etc/elasticsearch/elasticsearch.yml
+```
+- Vérifiez que le champ `discovery.seed_hosts` contient l'adresse IP du noeud Master
+![image](https://user-images.githubusercontent.com/123748177/227997848-fa8d4eab-7db6-4a46-93e2-79b5ee1da3fb.png)
+

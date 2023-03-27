@@ -154,3 +154,11 @@ Vous aurez comme résultat un jeton, copiez-le et gardez-le pour l'utiliser par 
 - Vérifiez que le champ `discovery.seed_hosts` contient l'adresse IP du noeud Master
 ![image](https://user-images.githubusercontent.com/123748177/227997848-fa8d4eab-7db6-4a46-93e2-79b5ee1da3fb.png)
 
+- Ensuite, vous apportez les modifications suivantes au fichier de configuration `elasticsearch.yml` du nouveau noeud:
+
+```
+cluster.name: kplr-cluster
+node.name: esnode-2
+network.host: esnode-2.elastic.kplr.fr
+http.port: 9200
+```

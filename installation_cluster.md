@@ -70,7 +70,26 @@ Vous trouvez un fichier yml nommé `elasticsearch.yml` qui est le fichier qui co
 
 Vous allez apporter les changmements suivants: 
 
+  - Vous allez changer le nom du cluster et le nommé `kplr-cluster`
+  - Puis, vous donnez le nom `esnode-1` au noeud maitre. Le nom du noeud doit etre unique au sein de votre cluster pour éviter toute collision de nommage.
+```
+cluster.name: kplr-cluster
+node.name: esnode-1
+```
+![image](https://user-images.githubusercontent.com/123748177/227979869-e78cca58-6f6f-4717-86ae-580230cd34a8.png)
 
+  - Modifiez le `network.host` et utilisez le nom de domaine qui est associé à ce serveur.
+  - Et ajouter le port HTTP 9200
+```
+network.host: esnode-1.elastic.kplr.fr
+http.port: 9200
+```
+
+![image](https://user-images.githubusercontent.com/123748177/227979999-1029c0ec-a81b-4315-b262-2ff509a194a4.png)
+
+  - Modifiez la ligne `cluster.initial_masternodes`. Ce champ n'est nécessaire que la première fois que vous démarrez cette instance Elasticsearch, qui configure   également le cluster auquel ce noeud appartient. La valeur devrait être le nom du nœud Master, qui dans ce cas est `esnode-1`.
+  
+![image](https://user-images.githubusercontent.com/123748177/227981642-a99f7d27-5004-46d1-9c60-0122539a74d5.png)
 
 
 

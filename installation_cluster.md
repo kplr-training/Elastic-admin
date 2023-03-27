@@ -64,8 +64,10 @@ Tout d'abord, vous allez vous positionner dans le répertoire qui contient les f
 ```
 cd /etc/elasticsearch/
 ```
-Vous pouvez taper la commande `ls` pour lister les différents fichiers de configuration existants. 
+Vous pouvez taper la commande `ls` pour lister les différents fichiers de configuration existants.
+
 Vous trouvez un fichier yml nommé `elasticsearch.yml` qui est le fichier qui contient la configuration principale d'Elasticsearch, vous devez le configurer pour que ce noeud soit le noeud Master.
+
 Vous allez apporter les changmements suivants: 
 
 

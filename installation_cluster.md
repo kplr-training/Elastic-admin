@@ -109,3 +109,25 @@ systemctl start elasticsearch
 systemctl status elasticsearch
 ```
 ![image](https://user-images.githubusercontent.com/123748177/227985805-e2755adf-9942-4f90-8f14-c8b6bfa7ec5b.png)
+
+
+**Réinitialisation du mot de passe de Super utilisateur des noeuds Elasticsearch :**
+
+Vous devriez pinguer l'API pour voir quel est le statut du cluster, mais tout d'abord vous devez réinitialiser le mot de passe pour le super utilisateur 'elastic' dont vous aurez besoin.
+
+- Tout d'abord, positionnez vous dans le répertoire `/usr/share/elasticsearch/bin/`: 
+```
+ cd /usr/share/elasticsearch/bin/
+```
+- Ensuite, utilisez la commande de réinitialisation du mot de passe qui vient avec l'installation d'Elasticsearch (Saissisez le mot de passe : kplr123):
+```
+ elasticsearch-reset-password -u elastic
+```
+
+**Maintenant, vous allez pinguer l'API elastic pour vérifier l'état du cluster:** 
+
+```
+curl -k -u elastic:kplr123 https://esnode-1.elastic.kplr.fr:9200/_cluster/health?pretty
+```
+Vous pouvez voir dans le résultat de la commande que le cluster `kplr-cluster` contient un seul noeud.
+

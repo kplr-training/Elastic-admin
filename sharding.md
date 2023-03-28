@@ -77,10 +77,17 @@ Pour ce faire:
  ```
   unzip plain-text-wikipedia-202011.zip && rm plain-text-wikipedia-202011.zip
  ```
+## 2- Conversion des fichiers JSON en fichiers NDJSON
 
+NDJSON signifie "newline delimited JSON" en anglais. C'est un format de données qui permet de stocker et de transmettre des données structurées sous forme de fichiers texte, où chaque objet JSON est séparé par une nouvelle ligne.
 
+Contrairement à JSON standard, qui stocke des données structurées dans un seul bloc de texte, ndjson stocke chaque objet JSON dans une ligne distincte. Cela permet de lire et de traiter les données de manière plus efficace pour les programmes qui travaillent avec des flux de données en temps réel ou avec de grands ensembles de données.
 
+En particulier, ndjson est souvent utilisé pour importer en vrac des données dans les bases de données NoSQL, y compris Elasticsearch, car il permet de transmettre un grand nombre de documents en une seule requête HTTP. En utilisant ndjson, il est possible de transmettre un grand nombre de documents JSON sans avoir à créer une requête HTTP pour chaque document, ce qui peut entraîner une diminution des performances.
 
+**Maintenant, vous etes censés créer un script Python qui sert à convertir des fichiers JSON en format NDJSON qui est compatible avec l'API Bulk d'Elasticsearch.**
+
+L'API Bulk d'Elasticsearch est une API RESTful qui permet de traiter plusieurs documents en une seule requête HTTP. Elle permet de créer, de mettre à jour ou de supprimer plusieurs documents à la fois, et de les ajouter à un index spécifié. Cela rend le traitement en masse de données beaucoup plus efficace que les opérations de traitement de document individuel.
 
 
 

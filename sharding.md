@@ -77,6 +77,8 @@ Pour ce faire:
  ```
   unzip plain-text-wikipedia-202011.zip && rm plain-text-wikipedia-202011.zip
  ```
+ **NB: Les données sont chargées sous forme des fichiers JSON
+ 
 ## 2- Conversion des fichiers JSON en fichiers NDJSON
 
 NDJSON signifie "newline delimited JSON" en anglais. C'est un format de données qui permet de stocker et de transmettre des données structurées sous forme de fichiers texte, où chaque objet JSON est séparé par une nouvelle ligne.
@@ -90,6 +92,6 @@ En particulier, ndjson est souvent utilisé pour importer en vrac des données d
 L'API Bulk d'Elasticsearch est une API RESTful qui permet de traiter plusieurs documents en une seule requête HTTP. Elle permet de créer, de mettre à jour ou de supprimer plusieurs documents à la fois, et de les ajouter à un index spécifié. Cela rend le traitement en masse de données beaucoup plus efficace que les opérations de traitement de document individuel.
 
 
-
+**- Script de conversion des fichiers JSON
 
 

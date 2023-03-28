@@ -65,13 +65,24 @@ Pour ce faire:
   cd .kaggle/
   vi kaggle.json
  ```
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ - Déplacez vous vers le répertoire `json` dans lequel vous allez téléchargez votre ensemble de données:
+ ```
+  cd /enwiki20201020/json
+ ``` 
+ - Téléchargez vos données, n'oubliez pas d'ajouter votre nom d'utilisateur dans la commande: 
+ ```
+  /root/.local/bin/kaggle datasets download USER-NAME/plain-text-wikipedia-202011
+ ```
+ - Les données sont téléchargés sous format zip, extrayez le fichier dans le répertoire actuel et supprimer le:
+ ```
+  unzip plain-text-wikipedia-202011.zip && rm plain-text-wikipedia-202011.zip
+ ```
+
+
+
+
+
+
+
+
+

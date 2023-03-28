@@ -24,4 +24,15 @@ Commencez par la création du répertoire `enwiki20201020` et puis accédez à c
 mkdir enwiki20201020
 cd enwiki20201020/
 ```
-
+Dans ce répertoire, vous allez créer 3 répertoires:
+```
+mkdir json ndjson sample
+```
+Tapez la commande suivante pour vérifier que vous avez bien créez les différents répertoires:
+```
+ll
+```
+Notez bien: 
+- json : ce répertoire sert à stocker les données que vous allez téléchargés et dont vous aurez besoin pour alimenter Elasticsearch.
+- ndjson : ce répertoire va contenir les différentes fichiers qui contiennent les memes données mais au format NDJSON. NDJSON (Newline Delimited JSON) est un format de données qui permet de stocker et de transmettre des données structurées sous forme de fichiers texte, où chaque objet JSON est séparé par une nouvelle ligne. 
+- sample: ce répertoire vous sera utile pour exécuter vos tests.

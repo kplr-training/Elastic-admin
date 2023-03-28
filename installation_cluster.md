@@ -299,7 +299,7 @@ systemctl status kibana
 ```
 ![image](https://user-images.githubusercontent.com/123748177/228309327-a8321452-8bd4-4621-83cd-160b9c670f13.png)
 
-**Félicitations!! Vous pouvez maintenant vous connecter à Kibana à partir de votre navigateur en utilisant votre lien unique qui est sous la forme `dash0X.dev.kplr.fr`**
+**Félicitations!! Vous pouvez maintenant vous connecter à Kibana à partir de votre navigateur en utilisant votre lien unique qui est sous la forme `dash0X.dev.kplr.fr:5601`**
 
 ![image](https://user-images.githubusercontent.com/123748177/228312105-a49a3b2b-0cd2-4df9-bbeb-0fcf76dc5ece.png)
 

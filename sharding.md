@@ -92,6 +92,13 @@ En particulier, ndjson est souvent utilisé pour importer en vrac des données d
 L'API Bulk d'Elasticsearch est une API RESTful qui permet de traiter plusieurs documents en une seule requête HTTP. Elle permet de créer, de mettre à jour ou de supprimer plusieurs documents à la fois, et de les ajouter à un index spécifié. Cela rend le traitement en masse de données beaucoup plus efficace que les opérations de traitement de document individuel.
 
 
-**- Script de conversion des fichiers JSON
+**- Script de conversion des fichiers JSON**
+
+A ce moment, vous devez écrire le script Python qui va vous permet de convertir les fichiers JSON en fichiers NDJSON.
+
+Pour ce faire, créez un fichier Python `to_ndjson.py` dans lequel vous écrivez votre script. Voici le pseudo code du script à créer:
+```
+
+```
 
 

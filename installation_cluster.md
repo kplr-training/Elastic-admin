@@ -260,7 +260,7 @@ certbot certonly --standalone
 Ensuite: 
  - Vous pouvez tapez votre adresse email 
  - Vous tapez `Y` pour accepter les conditions d'utilisation 
- - Vous saississez le nom de domaine suivant : `dash01.dev.kplr.fr` 
+ - Vous demandez à votre formateur de vous donnez le nom de domaine qui sera sous la forme suivante : `dash0X.dev.kplr.fr` 
 
 A ce moment, votre certificat est bien téléchargé dans votre machine!
 
@@ -281,3 +281,32 @@ server.ssl.key: /etc/kibana/certs/dash01.dev.kplr.fr/privkey1.pem
 ```
 
 ![image](https://user-images.githubusercontent.com/123748177/228023179-d22f1b5e-f832-42e4-8f18-f75c601644dd.png)
+
+
+**Il ne vous reste qu'à démarrer Kibana :)**
+Pour ce faire, exécuter les commandes suivantes: 
+```
+systemctl daemon-reload
+
+systemctl enable kibana
+
+systemctl start kibana
+```
+- Puis, on vérifie l'état du Kibana pour vérifier que tout marche correctement.
+
+```
+systemctl status kibana
+```
+![image](https://user-images.githubusercontent.com/123748177/228309327-a8321452-8bd4-4621-83cd-160b9c670f13.png)
+
+**Félicitations!! Vous pouvez maintenant vous connecter à Kibana à partir de votre navigateur en utilisant votre lien unique qui est sous la forme `dash0X.dev.kplr.fr`**
+
+![image](https://user-images.githubusercontent.com/123748177/228312105-a49a3b2b-0cd2-4df9-bbeb-0fcf76dc5ece.png)
+
+Notez bien: 
+`
+Username: elastic
+Password: kplr123
+`
+
+![image](https://user-images.githubusercontent.com/123748177/228313513-dd01a125-77b2-4e77-ae46-3d55d1e0d8e6.png)

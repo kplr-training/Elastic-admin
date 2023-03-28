@@ -141,6 +141,8 @@ Pour ajouter autres noeuds dans le cluster, vous devez générer un `jeton d'ins
  elasticsearch-create-enrollment-token -s node
 ```
 Vous aurez comme résultat un jeton, copiez-le et gardez-le pour l'utiliser par la suite.
+![image](https://user-images.githubusercontent.com/123748177/228221462-d1420abd-9c3f-4aae-9786-13d3d2a9aa81.png)
+
 
 - Dans le noeud que vous voulez ajouter au cluster, accédez au répertoire suivant `/usr/share/elasticsearch/bin/` et utilisez le jeton pour l'intégrer à votre cluster:
 
@@ -213,8 +215,9 @@ Pour ce faire, vous devez générer le jeton, dans la console du noeud actuel, t
 curl -X POST -k -u elastic:kplr123 https://esnode-2.elastic.kplr.fr:9200/_security/service/elastic/kibana/credential/token/kibana_token
 
 ```
-NB: Copiez la valeur du jeton pour l'utiliser par la suite! 
 
+NB: Copiez la valeur du jeton pour l'utiliser par la suite! 
+![image](https://user-images.githubusercontent.com/123748177/228222565-cd2bc29a-36dd-47f4-b9ee-863f0ce50acc.png)
 
 Redirigez vous vers le répertoire `/usr/share/kibana/bin`:
 ```

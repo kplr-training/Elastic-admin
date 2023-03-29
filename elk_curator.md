@@ -113,6 +113,37 @@ curator snapshot.yml
 
 ![image](https://user-images.githubusercontent.com/123748177/228607860-802d34a1-8584-4ee0-9e22-deaf88d91e5f.png)
 
+ 2:
+    action: restore
+    description: restore new_index
+    options:
+      repository: cur_backup
+      # If name is blank, the most recent snapshot by age will be selected
+      name:
+      # If indices is blank, all indices in the snapshot will be restored
+      indices: ["new_index"]
+      include_aliases: False
+      ignore_unavailable: False
+      include_global_state: False
+      partial: False
+      rename_pattern: '(.+)'
+      rename_replacement: 'restored_$1'
+      extra_settings:
+      wait_for_completion: True
+      skip_repo_fs_check: True
+      disable_action: False
+
+    filters:
+      - filtertype: pattern
+        kind: prefix
+        value: bck-kplr
+
+      - filtertype: state
+        state: SUCCESS
+        
+  ![image](https://user-images.githubusercontent.com/123748177/228619212-8d839a65-20db-4304-870d-63ccff079c1d.png)
+
+
 
 
 

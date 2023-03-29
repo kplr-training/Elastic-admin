@@ -44,7 +44,20 @@ watch -n 1 'curl -s -X GET -k -u elastic:kplr123 "https://esnode-3.elastic.kplr.
 - Vous pouvez vérifier que le repository est bien créé en vérifiant le status de connexion:
  ![image](https://user-images.githubusercontent.com/123748177/228505783-d3b3a998-bb52-4f9d-86f8-d6d9cb4ddc2e.png)
 
-- 
+- Ensuite, vous devez créez une "Policy", pour ce faire: 
+   - Choisissez un nom pour votre Policy, par exemple : `kplr-policy`
+   - Choisissez un nom pour les snapshots, par exemple: `kplr-snapshot`
+   - Choisissez le repository que vous venez de créer 
+   - Choisissez la fréquence de vos snapshots, par exemple chaque minute
+   - Ensuite, sélectionnez l'index que vous avez créer
+   - Vous pouvez configurez la rétention de vos snapshots comme la durée d'expiration et le nombre maximum des snapshots à conserver.
+   - Aprés la création de la "Policy", vous pouvez l'exécuter:
+     ![image](https://user-images.githubusercontent.com/123748177/228508149-27040d3a-fdf4-45f6-966f-a0c207ae83f1.png)
+     
+- *Vous pouvez lister les fichiers du repository que vous avez créé dans votre machine pour vérifier que les snapshots se créent chaque minute!*
+
+## 2- Restauration des données après perte
+
 
 
 

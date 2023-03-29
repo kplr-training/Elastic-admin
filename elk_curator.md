@@ -66,3 +66,40 @@ curator_cli show-indices
 **Vous aurez comme résultat la liste des indices déjà créés.**
 
 ## 2- Snapshot et Restauration Curator
+
+sudo apt-get install nfs-kernel-server
+sudo mkdir -p /srv/bck
+sudo chmod 775 /srv/bck/
+vi /etc/exports
+/srv/bck 127.0.0.1(rw,sync,no_root_squash)
+exportfs -r
+sudo apt install nfs-client
+sudo mount -t nfs 127.0.0.1:/srv/bck /tmp
+sudo umount /tmp
+sudo mkdir -p /exports/backup
+sudo chown elasticsearch:elasticsearch /exports/backup
+127.0.0.1:/srv/bck /exports/backup nfs defaults 0 0
+sudo mount -a
+sudo chown elasticsearch:elasticsearch /exports/backup
+path.repo: ["/exports/backup"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

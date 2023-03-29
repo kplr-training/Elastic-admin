@@ -41,8 +41,10 @@ watch -n 1 'curl -s -X GET -k -u elastic:kplr123 "https://esnode-3.elastic.kplr.
 ![image](https://user-images.githubusercontent.com/123748177/228501571-6812fe48-3d95-4ea6-9ca3-23ec8aadc1ac.png)
 
 - Et vous créez votre repository.
-- 
+- Vous pouvez vérifier que le repository est bien créé en vérifiant le status de connexion:
+ ![image](https://user-images.githubusercontent.com/123748177/228505783-d3b3a998-bb52-4f9d-86f8-d6d9cb4ddc2e.png)
 
+- 
 
 
 

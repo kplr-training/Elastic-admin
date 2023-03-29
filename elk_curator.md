@@ -82,13 +82,36 @@ sudo chown elasticsearch:elasticsearch /exports/backup
 sudo mount -a
 sudo chown elasticsearch:elasticsearch /exports/backup
 path.repo: ["/exports/backup"]
+systemctl restart elasticsearch
+curl -XPUT '127.0.0.1:9200/_snapshot/cur_backup' -H 'Content-Type: application/json' -d '{ "type": "fs", "settings": {"location": "/exports/backup","compress": true}}'
+![image](https://user-images.githubusercontent.com/123748177/228602723-1fbecdc0-6d4a-4e67-82f0-be80274a7f4d.png)
+
+![image](https://user-images.githubusercontent.com/123748177/228602055-7ab44753-0187-41f5-89f7-dad0263cd51d.png)
+
+vi snapshot.yml
+
+actions:
+  1:
+    action: snapshot
+    description: snap new_index
+    options:
+      repository: cur_backup
+      name: bck-kplr-%Y%m%d%H%M%S
+      ignore_unavailable: False
+      include_global_state: True
+      partial: False
+      wait_for_completion: True
+      skip_repo_fs_check: False
+      disable_action: False
+    filters:
+      - filtertype: pattern
+        kind: prefix
+        value: new_index
 
 
+curator snapshot.yml
 
-
-
-
-
+![image](https://user-images.githubusercontent.com/123748177/228607860-802d34a1-8584-4ee0-9e22-deaf88d91e5f.png)
 
 
 

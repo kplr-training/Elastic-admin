@@ -18,12 +18,15 @@ watch -n 1 'curl -s -X GET -k -u elastic:kplr123 "https://esnode-3.elastic.kplr.
 ```
 **Pour créer un snapshot, suivez les consignes suivantes:**
 - Connectez vous à Kibana, puis accédez à la partie "Stack Management" :
+
 ![image](https://user-images.githubusercontent.com/123748177/228496402-0ad428c3-58d4-43b0-b531-a96f86e4d161.png)
 
 - Ensuite, cliquez sur "Snapshot et restore"
+
 ![image](https://user-images.githubusercontent.com/123748177/228497121-d0ba99ba-f633-49cb-b93e-a67c4c791932.png)
 
 - Vous devez tout d'abord créez un repository
+
 ![image](https://user-images.githubusercontent.com/123748177/228497412-4a869741-df5d-417a-9e6e-b79ce869321b.png)
 
 - Choisissez comme nom : `kplr`

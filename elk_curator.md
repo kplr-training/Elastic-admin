@@ -201,5 +201,25 @@ curl 127.0.0.1:9200/_cat/aliases
 
 ![image](https://user-images.githubusercontent.com/123748177/228628903-03b0a834-bd7c-411b-96c2-59de444be2cf.png)
 
+actions :
+  1:
+    action: alias
+    description: "add index to mynewalias"
+    options:
+      name: mynewalias
+    add:
+      filters:
+      - filtertype: pattern
+        kind: prefix
+        value: new_index
 
+      - filtertype: age
+        direction: younger
+        source: name
+        timestring: '%Y-%m-%d'
+        unit: days
+        unit_count: 2
+        
+        
+![image](https://user-images.githubusercontent.com/123748177/228630422-05b9a4d0-21d7-4b3f-9fb6-1af21419794a.png)
 

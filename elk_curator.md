@@ -64,6 +64,86 @@ logging:
 curator_cli show-indices
 ```
 **Vous aurez comme résultat la liste des indices déjà créés.**
+## 3- Gestion et Management des Alias:
+
+POST _reindex
+{
+  
+  "source": {
+    "index": "new_index"
+  },
+  "dest": {
+    "index": "new_index-2023-03-03"
+  }
+    
+  
+}
+
+POST new_index/_bulk
+{"index":{}}
+{ "nom": "msis", "prenom": "khaoula"}
+
+![image](https://user-images.githubusercontent.com/123748177/228627128-db5ba54a-51dd-4c6c-b8e5-4277a9c219cb.png)
+
+actions :
+  1:
+    action: alias
+    description: "add index to mynewalias"
+    options:
+      name: mynewalias
+    add:
+      filters:
+      - filtertype: pattern
+        kind: prefix
+        value: new_index
+
+
+curator alias.yml
+ curl 127.0.0.1:9200/_cat/aliases
+
+![image](https://user-images.githubusercontent.com/123748177/228628435-f86071a6-1e8f-48db-8fd2-70fc71d43021.png)
+actions :
+  1:
+    action: alias
+    description: "add index to mynewalias"
+    options:
+      name: mynewalias
+    remove:
+      filters:
+      - filtertype: pattern
+        kind: prefix
+        value: new_index
+        
+        
+curator alias.yml
+
+curl 127.0.0.1:9200/_cat/aliases
+
+![image](https://user-images.githubusercontent.com/123748177/228628903-03b0a834-bd7c-411b-96c2-59de444be2cf.png)
+
+actions :
+  1:
+    action: alias
+    description: "add index to mynewalias"
+    options:
+      name: mynewalias
+    add:
+      filters:
+      - filtertype: pattern
+        kind: prefix
+        value: new_index
+
+      - filtertype: age
+        direction: younger
+        source: name
+        timestring: '%Y-%m-%d'
+        unit: days
+        unit_count: 2
+        
+        
+![image](https://user-images.githubusercontent.com/123748177/228630422-05b9a4d0-21d7-4b3f-9fb6-1af21419794a.png)
+
+
 
 ## 2- Snapshot et Restauration Curator
 
@@ -143,83 +223,4 @@ curator snapshot.yml
         
   ![image](https://user-images.githubusercontent.com/123748177/228619212-8d839a65-20db-4304-870d-63ccff079c1d.png)
 
-
-## 3- Gestion et Management des Alias:
-
-POST _reindex
-{
-  
-  "source": {
-    "index": "new_index"
-  },
-  "dest": {
-    "index": "new_index-2023-03-03"
-  }
-    
-  
-}
-
-POST new_index/_bulk
-{"index":{}}
-{ "nom": "msis", "prenom": "khaoula"}
-
-![image](https://user-images.githubusercontent.com/123748177/228627128-db5ba54a-51dd-4c6c-b8e5-4277a9c219cb.png)
-
-actions :
-  1:
-    action: alias
-    description: "add index to mynewalias"
-    options:
-      name: mynewalias
-    add:
-      filters:
-      - filtertype: pattern
-        kind: prefix
-        value: new_index
-
-
-curator alias.yml
- curl 127.0.0.1:9200/_cat/aliases
-
-![image](https://user-images.githubusercontent.com/123748177/228628435-f86071a6-1e8f-48db-8fd2-70fc71d43021.png)
-actions :
-  1:
-    action: alias
-    description: "add index to mynewalias"
-    options:
-      name: mynewalias
-    remove:
-      filters:
-      - filtertype: pattern
-        kind: prefix
-        value: new_index
-        
-        
-curator alias.yml
-
-curl 127.0.0.1:9200/_cat/aliases
-
-![image](https://user-images.githubusercontent.com/123748177/228628903-03b0a834-bd7c-411b-96c2-59de444be2cf.png)
-
-actions :
-  1:
-    action: alias
-    description: "add index to mynewalias"
-    options:
-      name: mynewalias
-    add:
-      filters:
-      - filtertype: pattern
-        kind: prefix
-        value: new_index
-
-      - filtertype: age
-        direction: younger
-        source: name
-        timestring: '%Y-%m-%d'
-        unit: days
-        unit_count: 2
-        
-        
-![image](https://user-images.githubusercontent.com/123748177/228630422-05b9a4d0-21d7-4b3f-9fb6-1af21419794a.png)
 

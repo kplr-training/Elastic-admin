@@ -26,4 +26,24 @@ watch -n 1 'curl -s -X GET -k -u elastic:kplr123 "https://esnode-3.elastic.kplr.
 - Vous devez tout d'abord créez un repository
 ![image](https://user-images.githubusercontent.com/123748177/228497412-4a869741-df5d-417a-9e6e-b79ce869321b.png)
 
+- Choisissez comme nom : `kplr`
+- Choisissez comme type : ` Shared file system `
+- Dans votre fichier de configuration d'Elasticsearch `elasticsearch.yml`, vous devez ajoutez le chemin vers votre repository:
+    - Créez un dossier qui sera votre repository
+    - Editez le fichier elasticsearch.yml
+    - Ajoutez le chemin vers le repository : `path.repo : "chemin/vers/dossier"`
+     ![image](https://user-images.githubusercontent.com/123748177/228501255-9683c691-58d1-47b7-8072-484b7b59d8c4.png)
+
+    - Redémarrez le service Elasticsearch : ` systemctl restart elasticsearch.service `
+
+- Vous utilisez le chemin vers le répertoire que vous avez créer pour compléter la création du votre repo.
+- Activez la compression du snapshot.
+![image](https://user-images.githubusercontent.com/123748177/228501571-6812fe48-3d95-4ea6-9ca3-23ec8aadc1ac.png)
+
+- Et vous créez votre repository.
 - 
+
+
+
+
+

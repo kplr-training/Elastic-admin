@@ -122,10 +122,42 @@ Pour chaque fichier dans le dossier :
 
 ## 3- Ingestion des données dans un cluster Elasticsearch en utilisant l'API Elasticsearch Bulk
 
+A ce moment, vous devez écrire un script shell (écrit en Bash) qui permet l'ingestion de données en masse dans Elasticsearch. L'ingestion se fait à partir de fichiers NDJSON (Newline Delimited JSON) contenant les données à indexer.
+
+Pour ce faire, créez un fichier Bash `bulk.sh` dans lequel vous écrivez votre script. Voici le pseudo code du script à créer:
+
+```
+Si le premier argument est vide alors :
+    Afficher le message d'erreur et les instructions pour l'utilisation du script suivants:
+       "Usage: ./bulk_ingest.sh <index_name> [num_files]"
+       "       ./bulk_ingest.sh <index_name>"
+       "        |---- Ingests all .ndjson files in the current directory"
+       "Options:"
+          "  <index_name>: Name of the Elasticsearch index to ingest data into"
+          "  <num_files>: Number of .ndjson files to ingest."
+          "               Default: ingest all files in the current directory"
+          
+          
+    Quitter le script avec un code d'erreur
+
+Si le deuxième argument est fourni alors :
+    Limite = deuxième argument
+Sinon :
+    Limite = nombre de fichiers .ndjson dans le répertoire courant
+
+Afficher le message pour indiquer le nombre maximum de fichiers qui seront traités pour l'index spécifié
+
+Initialiser i à 1
+
+Pour chaque fichier .ndjson dans le répertoire courant :
+    Si i est supérieur à la limite alors :
+        Sortir de la boucle
+        
+    Envoyer une requête POST Elasticsearch pour indexer les données du fichier courant dans l'index spécifié
+    Incrémenter i de 1
 
 
-
-
+```
 
 
 

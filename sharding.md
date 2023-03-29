@@ -159,7 +159,11 @@ Pour chaque fichier .ndjson dans le répertoire courant :
 
 ```
 
+## 4- Création et Gestion des Shards: 
 
 
+**Cette commande vous permet de visualiser le changement de la taille des shards lors de l'ingestion en temps réel:**
+```
+watch -n 1 'curl -s -X GET -k -u elastic:kplr123 "https://esnode-1.elastic.kplr.fr:9200/_cat/indices" | awk "{print \$7,\$9}"'
 
-
+```

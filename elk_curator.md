@@ -290,7 +290,8 @@ curl -XPUT '127.0.0.1:9200/_snapshot/cur_backup' -H 'Content-Type: application/j
 ```
 ![image](https://user-images.githubusercontent.com/123748177/228602723-1fbecdc0-6d4a-4e67-82f0-be80274a7f4d.png)
 
-- Vérifiez que le repository est bien créé: 
+- Vérifiez que le repository est bien créé:
+ 
 ![image](https://user-images.githubusercontent.com/123748177/228602055-7ab44753-0187-41f5-89f7-dad0263cd51d.png)
 
 **Maintenant, après avoir créez votre repository, vous pouvez créez des snapshots de vos indices.**

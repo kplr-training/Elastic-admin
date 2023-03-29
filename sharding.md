@@ -124,4 +124,14 @@ Pour chaque fichier dans le dossier :
 
 ```
 
+## 3- Ingestion des données dans un cluster Elasticsearch en utilisant l'API Elasticsearch Bulk
+
+
+
+
+
+
+
+
+
 

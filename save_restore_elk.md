@@ -58,7 +58,26 @@ watch -n 1 'curl -s -X GET -k -u elastic:kplr123 "https://esnode-3.elastic.kplr.
 
 ## 2- Restauration des données après perte
 
+La restauration des données est un processus crucial pour assurer la continuité des activités et la sécurité des informations vu que les entreprises et les organisations dépendent souvent de données importantes pour leur fonctionnement quotidien.
 
+La perte de ces données peut causer des dommages considérables, tels que des pertes financières, une perte de productivité, des impacts sur la réputation de l'entreprise et des risques pour la sécurité des informations.
+
+La restauration des données permet de récupérer des données perdues ou endommagées à partir de sauvegardes précédemment créées. Cette procédure garantit que les données sont restaurées dans leur état précédent avant la perte ou l'endommagement, assurant ainsi la continuité des activités et la préservation de l'intégrité des données.
+
+
+- Pour simuler une perte des données, vous pouvez supprimer l'index que vous avez créé à partir de "Index Management":
+![image](https://user-images.githubusercontent.com/123748177/228509662-3e2315b6-efe5-405b-97ba-e3b653f8fc41.png)
+
+![image](https://user-images.githubusercontent.com/123748177/228509849-338801ed-8a86-41ca-abb9-c68364c75275.png)
+
+- Pour restaurer les données perdues, redirigez vous vers "Snapshot et Restore", choisissez le dernier snapshot créé et puis restaurez le:
+![image](https://user-images.githubusercontent.com/123748177/228510978-ad131620-67b7-466b-ab04-bde0251e212b.png)
+
+*Pour le moment, vous ne changez pas la configuration de l'index à restaurer, vous devez seulement restaurer vos données.*
+
+- Vous pouvez vérifier le status de votre restauration des données à partir de la rubrique "Restore Status", vérifiez bien que le status est "Complete"
+- **Revenez au "Index Management" et vérifiez bien que les données sont restaurées 😃**
+![image](https://user-images.githubusercontent.com/123748177/228512178-224cf8ca-b05e-4f19-8002-03b277fed00f.png)
 
 
 

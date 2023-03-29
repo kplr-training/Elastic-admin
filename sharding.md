@@ -161,8 +161,80 @@ Pour chaque fichier .ndjson dans le répertoire courant :
 
 ## 4- Création et Gestion des Shards: 
 
+- Vous pouvez créer un nouvel index avec des configurations spécifiques à savoir les nombres des shards et le nombre des réplications, voici un exemple:
+```
+PUT /new_idx
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1
+  }
+}
+``` 
+- Vous pouvez récupère la liste des index existants à l'aide de la commande suivante:
+```
+GET /_cat/indices?v
+```
+- Vous pouvez récupèrer la liste des shards pour l'index new_idx pour vérifier le nombre total des shards principals et répliqués à l'aide de la commande suivante:
+```
+GET /_cat/shards/new_idx?v
+```
+- Pour supprimer un index, tapez la commande suivante: 
+```
+DELETE /new_idx
+```
+- Vous pouvez modifier la taille maximale de shard pour l'index new_idx en envoyant une requête PUT sur /new_idx/_settings: 
+```
+PUT new_idx/_settings
+{
+  "index.max_shard_size": "40mb"
+}
+```
+- Ou bien vous pouvez modifier la taille maximale de shard en définissant une politique de cycle de vie de shard. Pour ce faire,:
+    - Supprimer tout d'abord l'index `new_idx`
+    - Créez une politique de cycle de vie:
+```
+PUT _ilm/policy/limit_shard_size_policy
+{
+  "policy": {
+    "phases": {
+      "hot": {
+        "actions": {
+          "rollover": {
+            "max_primary_shard_size": "30mb"
+          }
+        }
+      }
+    }
+  }
+}
+```
+    
+ - Modifiez l'intervalle de polling pour la gestion du cycle de vie de l'index en envoyant une requête PUT sur /_cluster/settings.
+```
+PUT _cluster/settings
+{
+  "transient": {
+    "indices.lifecycle.poll_interval": "5s"
+  }
+}
+```
+   - Recréez l'index en ajoutant la politique dans sa configuration:
+  ```
+PUT /new_idx
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1,
+    "index.lifecycle.name": "limit_shard_size_policy"
+  }
+}
+```
+## 5- Manipulation:
 
-**Cette commande vous permet de visualiser le changement de la taille des shards lors de l'ingestion en temps réel:**
+- Vous pouvez maintenant utiliser le script python pour convertir les fichiers JSON qui contiennent les données vers des fichiers NDJSON.
+- Utilisez le script shell pour ingérer les fichiers NDJSON vers ELasticsearch en utilisant l'API Bulk dans l'index new_idx.
+- **Cette commande vous permet de visualiser le changement de la taille des shards lors de l'ingestion en temps réel:**
 ```
 watch -n 1 'curl -s -X GET -k -u elastic:kplr123 "https://esnode-1.elastic.kplr.fr:9200/_cat/indices" | awk "{print \$7,\$9}"'
 

@@ -65,3 +65,6 @@ logging:
 ```
 
 pip install -U elasticsearch-curator==8.0.3
+
+mkdir /root/.curator/
+vi /root/.curator/curator.yml

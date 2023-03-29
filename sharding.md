@@ -105,34 +105,37 @@ import os
 folder = "."
 
 # Parcourir tous les fichiers dans le dossier
-for filename in os.listdir(folder):
+Pour chaque fichier dans le dossier:
     # Vérifier si le fichier se termine par .json
-    if filename.endswith(".json"):
-        print("processing",filename)
+    if    :
         # Ouvrir le fichier .json
-        with open(os.path.join(folder, filename), 'r') as f:
+        with open(os.path.join(  , ), 'r') as f:
+        
             # Charger les données JSON à partir du fichier
-            data = json.load(f)
+            data = 
 
         # Créer une liste vide pour stocker les données à envoyer à Elasticsearch
         bulk_data = []
+        
         # Parcourir chaque document dans les données JSON
         for doc in data:
+        
             # Créer une action de type "index" pour chaque document
             action = {"index":{}}
             # Ajouter l'action à la liste des données
-            bulk_data.append(json.dumps(action))
+            
             # Ajouter le document à la liste des données
-            bulk_data.append(json.dumps(doc))
+
 
         # Ajouter un caractère de nouvelle ligne à la fin de la requête
         bulk_data.append('\n')
 
         # Écrire les données en vrac dans un fichier .ndjson
-        with open(os.path.join(folder, filename) + '.ndjson', 'w') as f:
+        with open(os.path.join(  , ) + '  ', 'w') as f:
+        
             # Joindre toutes les lignes de données en une seule chaîne de caractères
             # séparées par des caractères de nouvelle ligne
-            f.write('\n'.join(bulk_data))
+            
 
         # Afficher un message indiquant que le traitement du fichier est terminé
         print("done.")
@@ -144,18 +147,19 @@ Importer les bibliothèques 'json' et 'os'
 Définir le dossier où se trouvent les fichiers .json
 
 Pour chaque fichier dans le dossier :
+
     Si le fichier se termine par .json :
-        Ouvrir le fichier
-        Charger les données JSON à partir du fichier
+    
+        Ouvrir le fichier et Charger les données JSON à partir du fichier
         Créer une liste vide pour stocker les données à envoyer à Elasticsearch
+        
         Pour chaque document dans les données JSON :
             Créer une action de type "index" pour chaque document
             Ajouter l'action à la liste des données
             Ajouter le document à la liste des données
+            
         Ajouter un caractère de nouvelle ligne à la fin de la requête
-        Écrire les données en vrac dans un fichier .ndjson
-        Afficher un message indiquant que le traitement du fichier est terminé
-
+        Écrire les données dans un fichier .ndjson
 
 ```
 

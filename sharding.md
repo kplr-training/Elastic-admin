@@ -96,7 +96,11 @@ L'API Bulk d'Elasticsearch est une API RESTful qui permet de traiter plusieurs d
 
 A ce moment, vous devez écrire le script Python qui va vous permet de convertir les fichiers JSON en fichiers NDJSON.
 
-Pour ce faire, créez un fichier Python `to_ndjson.py` dans lequel vous écrivez votre script. Voici le pseudo code du script à créer:
+Pour ce faire, créez un fichier Python `to_ndjson.py` dans lequel vous écrivez votre script. 
+```
+ vi /enwiki20201020/to_ndjson.py
+```
+Voici le pseudo code du script à créer:
 ```
 import json
 import os

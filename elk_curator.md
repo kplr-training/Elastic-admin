@@ -223,4 +223,33 @@ curator snapshot.yml
         
   ![image](https://user-images.githubusercontent.com/123748177/228619212-8d839a65-20db-4304-870d-63ccff079c1d.png)
 
+## 4- 
+
+  3_delete_old_test:
+    action: delete_indices
+    description: delete test index
+    options:
+      continue_if_exception: True
+      ignore_empty_list: True
+    filters:
+      - filtertype: pattern
+        kind: prefix
+        value: restored_new_index
+      - filtertype: age
+        source: creation_date
+        direction: younger
+        unit: days
+        unit_count: 2
+
+  4_create_index_next_day:
+    action: create_index
+    description: create index for the next day
+    options:
+      name: '<new_index-{now/d+1d}>'
+      continue_if_exception: True
+      disable_action: False
+      extra_settings:
+        settings:
+          number_of_shards: 6
+          number_of_replicas: 2
 

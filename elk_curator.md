@@ -9,3 +9,59 @@ En utilisant Curator, les utilisateurs peuvent facilement configurer et automati
 - Vous allez également couvrir les concepts clés de la gestion d'index, y compris les snapshots et la restauration de cluster, la gestion et le management des alias, ainsi que la création et la suppression des index. 
 
 - Tout au long de ce workshop, vous allez acquérir une compréhension approfondie de Curator et de son utilisation dans la gestion des index Elasticsearch, ainsi que des compétences pratiques pour automatiser les tâches de maintenance associées à la gestion des index.
+
+## 1- Introduction et Installation
+
+Pour installer *Curator*, vous pouvez choisir l'une des trois machines que vous avez ( On a choisi la machine esnode-1).
+
+- Afin de commencer l'installation, exécutez les commandes suivantes:
+
+```
+wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+echo "deb [arch=amd64] https://packages.elastic.co/curator/5/debian stable main" > /etc/apt/sources.list.d/curator.list
+sudo apt update
+sudo apt install elasticsearch-curator
+```
+
+- Vérifiez que Curator est bien installé en tapant la commande `help`:
+
+```
+curator --help
+```
+- Créez le répertoire par défaut de Curator:
+```
+  mkdir -p ~/.curator/
+```
+
+- Créez un fichier yml de configuration de Curator:
+
+```
+vi ~/.curator/curator.yml
+```
+- Editez le fichier yml et ajoutez la configuration suivante:
+```
+client:
+  hosts:
+    - IP ADRESS NODE 1
+    - IP ADRESS NODE 2
+    - IP ADRESS NODE 3
+  port: 9200
+  url_prefix:
+  use_ssl: False
+  certificate:
+  client_cert:
+  client_key:
+  ssl_no_validate: False
+  http_auth:
+  timeout: 30
+  master_only: False
+
+logging:
+  loglevel: INFO
+  logfile:
+  logformat: default
+  blacklist: ['elasticsearch', 'urllib3']
+
+```
+
+

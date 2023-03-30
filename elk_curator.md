@@ -12,7 +12,7 @@ En utilisant Curator, les utilisateurs peuvent facilement configurer et automati
 
 ## 1- Introduction et Installation Curator
 
-Pour installer *Curator*, vous pouvez choisir l'une des trois machines que vous avez ( On a choisi la machine esnode-1).
+Pour installer *Curator*, vous pouvez choisir la machine Single non sécurisée pour le faire afin de simplifier le process:
 
 - Afin de commencer l'installation, exécutez les commandes suivantes:
 

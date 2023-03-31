@@ -142,7 +142,7 @@ Pour ajouter autres noeuds dans le cluster, vous devez générer un `jeton d'ins
 
 - Dans le `noeud Master` ou `es-node-1`, accédez au répertoire suivant `/usr/share/elasticsearch/bin/` et puis générez le jeton à l'aide de la commande suivante: 
 ```
- elasticsearch-create-enrollment-token -s node
+./ elasticsearch-create-enrollment-token -s node
 ```
 Vous aurez comme résultat un jeton, copiez-le et gardez-le pour l'utiliser par la suite.
 ![image](https://user-images.githubusercontent.com/123748177/228221462-d1420abd-9c3f-4aae-9786-13d3d2a9aa81.png)

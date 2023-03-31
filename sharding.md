@@ -71,7 +71,7 @@ Pour ce faire:
  ``` 
  - Téléchargez vos données, n'oubliez pas d'ajouter votre nom d'utilisateur dans la commande: 
  ```
-  /root/.local/bin/kaggle datasets download USER-NAME/plain-text-wikipedia-202011
+  /root/.local/bin/kaggle datasets download ltcmdrdata/plain-text-wikipedia-202011
  ```
  - Les données sont téléchargés sous format zip, extrayez le fichier dans le répertoire actuel et supprimer le:
  ```

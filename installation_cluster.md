@@ -121,7 +121,11 @@ Vous devriez pinguer l'API pour voir quel est le statut du cluster, mais tout d'
 ```
 - Ensuite, utilisez la commande de réinitialisation du mot de passe qui vient avec l'installation d'Elasticsearch ( Saissisez le mot de passe : kplr123 ):
 ```
- elasticsearch-reset-password -u elastic
+ elasticsearch-reset-password -u elastic -i
+```
+- **NB:** Si vous voulez d'avoir un mot de passe qui est généré automatiquement, vous tapez la commande suivante et vous aurez votre mot de passe:
+```
+ elasticsearch-reset-password -u elastic 
 ```
 
 **Maintenant, vous allez pinguer l'API elastic pour vérifier l'état du cluster:** 

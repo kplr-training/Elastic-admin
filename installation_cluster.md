@@ -180,6 +180,9 @@ systemctl start elasticsearch
 curl -k -u elastic:kplr123 https://esnode-1.elastic.kplr.fr:9200/_cluster/health?pretty
 ``` 
 
+Vous pouvez voir dans le résultat de la commande que le cluster kplr-cluster **contient à présent les 3 noeuds**.
+
+
 ## 4- Installation de Kibana:
 
 Pour installer Kibana, vous choisissez l'un des noeuds secondaires dans lequel vous allez procédez l'installation. On choisit par exemple le noeud `es-node-2`.

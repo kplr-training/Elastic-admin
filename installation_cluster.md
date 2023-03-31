@@ -241,7 +241,11 @@ Vous allez par la suite copier la certificat `http_ca.crt` qui existe dans le r�
 ```
 cp /etc/elasticsearch/certs/http_ca.crt  /etc/kibana/certs/
 ```
-
+Vous modifiez le propriètaire des fichiers existants dans le répertoire `certs`:
+```
+cd /etc/kibana/certs/
+chown -R kibana:kibana *
+```
 Vous revenez vers le fichier de configuration `kibana.yml` et vous apportez les modifications suivantes (la partie System: Elasticsearch (Optional)) :
 ```
 elasticsearch.ssl.verificationMode: certificate

@@ -10,7 +10,7 @@ Vous avez 3 machines Linux quelque part dans le cloud, chacune avec des adresses
 
 Pour avoir accès à distance à ces machines, Vous devez taper la commande suivante, en ajoutant à la fin l'adresse IP publique de la machine :
 ```
-ssh -i "KPLR.pem" ubuntu@YOUR.IP.ADRESS
+ssh -i "training.pem" ubuntu@YOUR.IP.ADRESS
 ```
 Lorsque vous êtes bien connectés à vos machines, vous basculez en mode administrateur,our éviter les problèmes d'accès aux ressources, et vous vous déplacez vers le répertoire racine, en tapant les commandes suivantes 
   

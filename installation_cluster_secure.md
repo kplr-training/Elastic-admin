@@ -246,7 +246,7 @@ Vous modifiez le propriètaire des fichiers existants dans le répertoire `certs
 cd /etc/kibana/certs/
 chown -R kibana:kibana *
 ```
-Vous revenez vers le fichier de configuration `kibana.yml` et vous apportez les modifications suivantes (la partie System: Elasticsearch (Optional)) :
+Vous revenez vers le fichier de configuration `kibana.yml` et vous apportez les modifications suivantes (la partie System: Elasticsearch) :
 ```
 elasticsearch.ssl.verificationMode: certificate
 elasticsearch.ssl.certificateAuthorities: [ "/etc/kibana/certs/http_ca.crt" ]

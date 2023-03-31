@@ -191,7 +191,6 @@ PUT new_idx/_settings
 }
 ```
 - Ou bien vous pouvez modifier la taille maximale de shard en définissant une politique de cycle de vie de shard. Pour ce faire,:
-    - Supprimer tout d'abord l'index `new_idx`
     - Créez une politique de cycle de vie:
 ```
 PUT _ilm/policy/limit_shard_size_policy
@@ -221,13 +220,11 @@ PUT _cluster/settings
 ```
    - Recréez l'index en ajoutant la politique dans sa configuration:
   ```
-PUT /new_idx
+PUT new_idx/_settings
 {
-  "settings": {
-    "number_of_shards": 1,
-    "number_of_replicas": 1,
+ 
     "index.lifecycle.name": "limit_shard_size_policy"
-  }
+  
 }
 ```
 ## 5- Manipulation:

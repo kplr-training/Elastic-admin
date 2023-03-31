@@ -283,6 +283,11 @@ Ensuite, vous copiez les fichiers du certificat vers le répertoire que vous ven
 ```
 cp -a /etc/letsencrypt/archive/dash01.dev.kplr.fr/. /etc/kibana/certs/dash01.dev.kplr.fr
 ```
+Vous modifiez le propriètaire des fichiers existants dans le répertoire `dash01.dev.kplr.fr`:
+```
+cd /etc/kibana/certs/dash01.dev.kplr.fr
+chown -R kibana:kibana *
+```
 Finalement, vous revenez vers le fichier de configuration principal de Kibana et vous apportez les modifications suivantes:
 ```
 server.ssl.enabled: true

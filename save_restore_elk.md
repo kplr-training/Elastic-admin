@@ -38,7 +38,7 @@ watch -n 1 'curl -s -X GET -k -u elastic:kplr123 "https://esnode-3.elastic.kplr.
     - Editez le fichier elasticsearch.yml
     - Ajoutez le chemin vers le repository : `path.repo : ["chemin/vers/dossier"`]
  
- ![image](https://user-images.githubusercontent.com/123752166/230057305-e7ffef62-6683-4125-b098-5753771067a6.png)
+![image](https://user-images.githubusercontent.com/123748165/232626507-e4ae75de-82b4-464b-ad41-da3308d6cb38.png)
 
     - Changez le propriètaire de votre dossier: 
     ```

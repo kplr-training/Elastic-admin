@@ -36,9 +36,9 @@ watch -n 1 'curl -s -X GET -k -u elastic:kplr123 "https://esnode-3.elastic.kplr.
   dans votre fichier de configuration d'Elasticsearch `elasticsearch.yml`, vous devez ajoutez le chemin vers votre repository:
     - Créez un dossier qui sera votre repository
     - Editez le fichier elasticsearch.yml
-    - Ajoutez le chemin vers le repository : `path.repo : "chemin/vers/dossier"`
+    - Ajoutez le chemin vers le repository : `path.repo : ["chemin/vers/dossier"`]
  
-     ![image](https://user-images.githubusercontent.com/123748177/228501255-9683c691-58d1-47b7-8072-484b7b59d8c4.png)
+ ![image](https://user-images.githubusercontent.com/123752166/230057305-e7ffef62-6683-4125-b098-5753771067a6.png)
 
     - Changez le propriètaire de votre dossier: 
     ```
@@ -88,7 +88,17 @@ La restauration des données permet de récupérer des données perdues ou endom
 - Pour restaurer les données perdues, redirigez vous vers "Snapshot et Restore", choisissez le dernier snapshot créé et puis restaurez le:
 
 ![image](https://user-images.githubusercontent.com/123748177/228510978-ad131620-67b7-466b-ab04-bde0251e212b.png)
-
+puis vous decocher `All data streams and indices`, pour preciser quel data stream vous souhaitez restorer.
+<br>
+![image](https://user-images.githubusercontent.com/123748165/232626110-f09f0d01-126c-41df-883e-184b966d4876.png)
+par la suite vous continuer en appuyant sur `Next`.:
+<br>
+![image](https://user-images.githubusercontent.com/123748165/232626150-4f5d786b-069d-4470-8bae-cb20228caea2.png)
+<br>
+Puis `Restore snapshot`.
+<br>
+![image](https://user-images.githubusercontent.com/123748165/232625706-b3ed1efa-7e6a-4028-9727-ccaf2346e9dd.png)
+<br>
 *Pour le moment, vous ne changez pas la configuration de l'index à restaurer, vous devez seulement restaurer vos données.*
 
 - Vous pouvez vérifier le status de votre restauration des données à partir de la rubrique "Restore Status", vérifiez bien que le status est "Complete"

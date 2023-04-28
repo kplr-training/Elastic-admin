@@ -123,7 +123,7 @@ Vous devriez pinguer l'API pour voir quel est le statut du cluster, mais tout d'
 ```
  elasticsearch-reset-password -u elastic -i
 ```
-- **NB:** Si vous voulez d'avoir un mot de passe qui est généré automatiquement, vous tapez la commande suivante et vous aurez votre mot de passe:
+- **NB:** Si vous voulez avoir un mot de passe qui est généré automatiquement, vous tapez la commande suivante et vous aurez votre mot de passe:
 ```
  elasticsearch-reset-password -u elastic 
 ```

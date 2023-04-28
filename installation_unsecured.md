@@ -43,6 +43,11 @@ http.port: 9200
 xpack.security.enabled: false
 ```
 
+tips : 
+```
+sed -i 's/#network.host: 192.168.0.1/network.host: 127.0.0.1/g' /etc/elasticsearch/elasticsearch.yml
+```
+
 - Lancez Elasticsearch:
 ```
 systemctl daemon-reload
@@ -81,6 +86,11 @@ server.port: 5601
 server.host: "0.0.0.0"
 
 elasticsearch.hosts: ["http://localhost:9200"]
+```
+
+tips : 
+```
+sed -i 's/#server.host: "localhost"/server.host: "0.0.0.0"/g' /etc/elasticsearch/elasticsearch.yml
 ```
 **Il ne vous reste qu'à démarrer Kibana :)**
 Pour ce faire, exécuter les commandes suivantes: 

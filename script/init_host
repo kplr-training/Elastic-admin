@@ -1,0 +1,4 @@
+#!/bin/bash
+node="$1"
+ip="${2:-$(hostname -I)}"
+echo "$ip ${node}.elastic.kplr.fr $node" | sudo tee -a /etc/hosts

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+KIBANA_CONFIG="/etc/kibana/kibana.yml"
+
+sudo sed -i '1i\
+server.port: 5601\
+server.host: "0.0.0.0"\
+server.publicBaseUrl: "https://dash01.dev.kplr.fr:5601"\
+elasticsearch.hosts:\
+ - https://master.elastic.kplr.fr:9200
+
+' "$KIBANA_CONFIG"

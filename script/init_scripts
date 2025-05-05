@@ -1,1 +1,4 @@
 curl -s https://api.github.com/repos/kplr-training/Elastic-admin/contents/script | jq -r '.[].download_url' | xargs -n1 wget
+
+
+curl -Ls bit.ly/elastic-install | jq -r '.[].download_url' | xargs -n1 wget

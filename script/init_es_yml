@@ -1,0 +1,6 @@
+#!/bin/bash
+sudo sed -i '1i\
+cluster.name: kplr-cluster\
+node.name: master\
+network.host: master.elastic.kplr.fr\
+http.port: 9200' /etc/elasticsearch/elasticsearch.yml

@@ -7,6 +7,8 @@ server.port: 5601\
 server.host: "0.0.0.0"\
 server.publicBaseUrl: "https://dash01.dev.kplr.fr:5601"\
 elasticsearch.hosts:\
- - https://master.elastic.kplr.fr:9200
+ - https://master.elastic.kplr.fr:9200 \
+elasticsearch.ssl.verificationMode: certificate \
+elasticsearch.ssl.certificateAuthorities: [ "/etc/kibana/certs/http_ca.crt" ] \
 
 ' "$KIBANA_CONFIG"
